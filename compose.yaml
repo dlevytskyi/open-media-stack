@@ -94,7 +94,7 @@ services:
     image: ghcr.io/linuxserver/prowlarr:version-2.7.0.5723@sha256:431d7efebcef466e56adaa40a7a2fa2b0e85159a037b8bf465eaadbf0cf5bedf
     restart: unless-stopped
     logging: *logging
-    mem_limit: 320m # measured peak 203 MiB, plus 30 %
+    mem_limit: 512m # 265-275 MiB steady after days of searches (.NET JIT code ~80 MiB + mapped assemblies), plus headroom
     environment:
       PUID: "1000"
       PGID: "1000"

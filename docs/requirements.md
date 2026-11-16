@@ -17,7 +17,9 @@ The stack also targets generic amd64 hosts.
   `TORRSERVER_MEM_LIMIT`, is 3200 MB for two. FlareSolverr, if an indexer needs it, adds about 2.6 GB.
 * On the reference Pi 5 (16 GB) a 2160p UHD remux (77 Mbit/s) and a 1080p stream at once used at most 46 % of the
   CPU, 2.4 GB for TorrServer, and the SoC stayed at 55 °C without throttling.
-* Every service has a memory limit in `compose.yaml`: its measured peak plus 30 %.
+* Every service has a memory limit in `compose.yaml`: its measured peak plus about 30 %. Prowlarr settles at
+  about 270 MB after some days of searches (its .NET runtime keeps compiled code and libraries mapped), so its
+  limit is 512 MB.
 
 Notes:
 
